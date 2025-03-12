@@ -49,8 +49,7 @@ console.log(userObj.fullName()); // John Smith
 console.log("Task 3 ------------------------------");
 
 function defUpperStr(text) {
-  let isArgumentExist = arguments.length === 0 && "DEFAULT TEXT"; //
-  return isArgumentExist || text.toUpperCase() || "DEFAULT TEXT"; //
+  return text?.toUpperCase() || "DEFAULT TEXT"; //
 }
 // В змінну isArgumentExist записується значення "DEFAULT TEXT" тільки якщо немає аргументів, інакше буде false
 // Функція повертає значення "DEFAULT TEXT", але якщо isArgumentExist === false, то спрацьовує text.toUpperCase()
@@ -81,15 +80,12 @@ console.log("Task 4 ------------------------------");
 function evenFn(n) {
   if (n > 1) {
     let resultArray = [];
-    for (let i = 1; i < n; i += 1) {
-      if (!(i % 2)) {
-        resultArray.push(i);
-      }
+    for (let i = 2; i < n; i += 2) {
+      resultArray.push(i);
     }
     return resultArray;
-  } else {
-    return console.log("Function evenFn got an incorrect value");
   }
+  console.log("Function evenFn got an incorrect value");
 }
 
 console.log(evenFn(10)); // [2, 4, 6, 8, 10]
@@ -236,15 +232,12 @@ function oddFn(n) {
 
   if (n >= 1) {
     while (i <= n) {
-      if (i % 2) {
-        resultArray.push(i);
-      }
-      i += 1;
+      resultArray.push(i);
+      i += 2;
     }
     return resultArray;
-  } else {
-    return null;
   }
+  return null;
 }
 
 console.log(oddFn(10)); // [1, 3, 5, 7, 9]
